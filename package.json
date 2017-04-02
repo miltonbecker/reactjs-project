@@ -1,0 +1,48 @@
+{
+  "name": "reactjs-project",
+  "version": "1.0.0",
+  "description": "reactjs-project",
+  "main": "start.js",
+  "scripts": {
+    "start": "node server/start.js",
+    "start-watch": "nodemon --watch server server/start.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack",
+    "bundle-watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miltonbecker/reactjs-project.git"
+  },
+  "author": "Milton Becker Junior",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miltonbecker/reactjs-project/issues"
+  },
+  "homepage": "https://github.com/miltonbecker/reactjs-project#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "path": "^0.12.7",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^3.3.32",
+    "@types/jquery": "^2.0.41",
+    "babel-cli": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-react": "^6.23.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^2.3.2",
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.13.0",
+    "font-awesome": "^4.6.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3",
+    "gulp-header": "^1.8.7",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "jquery": "^3"
+  }
+}
