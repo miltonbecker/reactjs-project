@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 });
 */
 
-app.use(express.static(path.resolve(__dirname, '../client')));
+app.use(express.static(path.resolve(__dirname, '../client/public')));
 
 // app.use('/vendor', express.static(path.resolve(__dirname, '../client/vendor')));
 // app.use('/dist', express.static(path.resolve(__dirname, '../client/dist')));
