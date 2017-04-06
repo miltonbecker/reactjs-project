@@ -1,21 +1,35 @@
 'use strict';
 const React = require('react');
+const Router = require('react-router-dom');
 
 const Navbar = require('./navbar');
-const Header = require('./header');
-const PostList = require('./post-list');
 const Footer = require('./footer');
+
+const BlogMain = require('./blog-main');
+const AboutMain = require('./about-main');
 
 class Home extends React.Component {
 
     render() {
         return (
-            <div>
-                <Navbar />
-                <Header />
-                <PostList />
-                <Footer />
-            </div>
+            <Router.BrowserRouter>
+                <div>
+                    <Navbar />
+
+                    <Router.Route
+                        exact={true}
+                        path='/'
+                        component={BlogMain}
+                    />
+
+                    <Router.Route
+                        path='/about'
+                        component={AboutMain}
+                    />
+
+                    <Footer />
+                </div>
+            </Router.BrowserRouter>
         );
     }
 

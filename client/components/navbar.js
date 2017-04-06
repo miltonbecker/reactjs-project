@@ -1,5 +1,6 @@
 'use strict';
 const React = require('react');
+const Router = require('react-router-dom');
 
 class Navbar extends React.Component {
 
@@ -18,10 +19,14 @@ class Navbar extends React.Component {
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <a href="index.html">Home</a>
+                                <Router.Link to="/">
+                                    Home
+                                </Router.Link>
                             </li>
                             <li>
-                                <a href="about.html">About</a>
+                                <Router.Link to="/about">
+                                    About
+                                </Router.Link>
                             </li>
                             <li>
                                 <a href="post.html">Sample Post</a>

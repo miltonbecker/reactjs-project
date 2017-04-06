@@ -15,7 +15,8 @@ const config = {
                 loader: 'babel-loader'
             }
         ]
-    }
+    },
+    plugins: []
 };
 
 module.exports = config;

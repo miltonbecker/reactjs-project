@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react');
 
-class Header extends React.Component {
+class BlogHeader extends React.Component {
 
     render() {
         return (
@@ -23,4 +23,4 @@ class Header extends React.Component {
 
 }
 
-module.exports = Header;
+module.exports = BlogHeader;
