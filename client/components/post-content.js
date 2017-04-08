@@ -11,7 +11,7 @@ class PostContent extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                            {/* React first renders the page without any props */}
+                            {/* React first renders the page without any props (because the post is fetched after it was mounted) */}
                             {this.props.text &&
                                 this.renderText()
                             }
@@ -24,9 +24,9 @@ class PostContent extends React.Component {
 
     renderText() {
         if (this.props.markdown)
-            return renderHTML(marked(this.props.text));    
+            return renderHTML(marked(this.props.text));
         else
-            return renderHTML(this.props.text)
+            return renderHTML(this.props.text);
     }
 
 }
