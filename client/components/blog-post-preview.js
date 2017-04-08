@@ -1,12 +1,13 @@
 'use strict';
 const React = require('react');
+const Router = require('react-router-dom');
 
 class PostPreview extends React.Component {
 
     render() {
         return (
             <div className="post-preview">
-                <a href="post.html">
+                <Router.Link to={`/post/${this.props.id}`}>
                     <h2 className="post-title">
                         {this.props.title}
                     </h2>
@@ -16,7 +17,7 @@ class PostPreview extends React.Component {
                             {this.props.subtitle}
                         </h3>
                     }    
-                </a>
+                </Router.Link>
                 <p className="post-meta">Posted by&nbsp;
                     <a href="#">
                         {this.props.author}

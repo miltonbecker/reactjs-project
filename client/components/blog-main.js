@@ -1,14 +1,14 @@
 'use strict';
 const React = require('react');
-const BlogHeader = require('./blog-header');
-const PostList = require('./blog-preview-post-list');
+const Header = require('./header');
+const PostPreviewList = require('./blog-post-preview-list');
 
 class BlogMain extends React.Component {
     render() {
         return (
             <div>
-                <BlogHeader />
-                <PostList />
+                <Header image="/img/home-bg.jpg" className="site-heading" title="Clean Blog" subtitle="A Clean Blog Theme by Start Bootstrap" />
+                <PostPreviewList />
             </div>
         );
     }

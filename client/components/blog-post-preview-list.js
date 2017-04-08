@@ -1,10 +1,10 @@
 'use strict';
 const React = require('react');
-const PostPreview = require('./blog-preview-post-list-item');
+const PostPreview = require('./blog-post-preview');
 const $ = require('jquery');
 const dateFormat = require('dateformat');
 
-class PostList extends React.Component {
+class PostPreviewList extends React.Component {
 
     constructor() {
         super();
@@ -15,7 +15,7 @@ class PostList extends React.Component {
     }
 
     _getPosts() {
-        $.get('/posts')
+        $.get('/api/posts')
             .done((data) => {
                 this.setState({ posts: JSON.parse(data) });
             })
@@ -41,7 +41,8 @@ class PostList extends React.Component {
                         title={post.title}
                         subtitle={post.subtitle}
                         author={post.name}
-                        date={dateFormat(post.timestamp, 'mmmm dS, yyyy @ h:MM TT')}
+                        date={dateFormat(post.timestamp, 'mmmm dS, yyyy @ h:MM TT')} 
+                        id={post.id}
                     />
                     <hr />
                 </div>
@@ -69,4 +70,4 @@ class PostList extends React.Component {
 
 }
 
-module.exports = PostList;
+module.exports = PostPreviewList;
