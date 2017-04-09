@@ -33538,7 +33538,7 @@ class Footer extends React.Component {
                         React.createElement(
                             'p',
                             { className: 'copyright text-muted' },
-                            'Copyright \xA9 Your Website 2016'
+                            'Powered by React and Node.js'
                         )
                     )
                 )

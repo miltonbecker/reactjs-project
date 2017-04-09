@@ -35,7 +35,7 @@ class Footer extends React.Component {
                                     </a>
                                 </li>
                             </ul>
-                            <p className="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                            <p className="copyright text-muted">Powered by React and Node.js</p>
                         </div>
                     </div>
                 </div>

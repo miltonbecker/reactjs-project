@@ -29,7 +29,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #0085A1;
+  color: #146faa;
 }
 a img:hover,
 a img:focus {
@@ -94,7 +94,7 @@ hr.small {
   }
   .navbar-custom .nav li ul.dropdown-menu a:hover,
   .navbar-custom .nav li ul.dropdown-menu a:focus {
-    color: #0085A1;
+    color: #146faa;
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -126,14 +126,14 @@ hr.small {
   }
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #0085A1;
+    color: #146faa;
   }
   .navbar-custom.is-fixed .nav li a {
     color: #333333;
   }
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #0085A1;
+    color: #146faa;
   }
   .navbar-custom.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -228,7 +228,7 @@ hr.small {
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-  color: #0085A1;
+  color: #146faa;
 }
 .post-preview > a > .post-title {
   font-size: 30px;
@@ -252,7 +252,7 @@ hr.small {
 }
 .post-preview > .post-meta > a:hover,
 .post-preview > .post-meta > a:focus {
-  color: #0085A1;
+  color: #146faa;
   text-decoration: underline;
 }
 @media only screen and (min-width: 768px) {
@@ -278,7 +278,7 @@ hr.small {
 footer {
   padding: 50px 0 65px;
   margin-top: 20px;
-  background-color: #555555;
+  background-color: #252526;
 }
 footer .list-inline {
   margin: 0;
@@ -339,7 +339,7 @@ footer .copyright {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #0085A1;
+  color: #146faa;
 }
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
@@ -357,10 +357,19 @@ form .row:first-child .floating-label-form-group {
   font-size: 16px;
   padding: 25px 35px;
 }
+.btn-primary {
+  background-color: #146faa;
+  border: 1px solid #146faa;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #5baee5;
+  border: 1px solid #5baee5;
+}
 .btn-default:hover,
 .btn-default:focus {
-  background-color: #0085A1;
-  border: 1px solid #0085A1;
+  background-color: #5baee5;
+  border: 1px solid #5baee5;
   color: white;
 }
 .pager {
@@ -380,8 +389,8 @@ form .row:first-child .floating-label-form-group {
 .pager li > a:hover,
 .pager li > a:focus {
   color: white;
-  background-color: #0085A1;
-  border: 1px solid #0085A1;
+  background-color: #5baee5;
+  border: 1px solid #5baee5;
 }
 .pager .disabled > a,
 .pager .disabled > a:hover,
@@ -394,12 +403,12 @@ form .row:first-child .floating-label-form-group {
 ::-moz-selection {
   color: white;
   text-shadow: none;
-  background: #0085A1;
+  background: #146faa;
 }
 ::selection {
   color: white;
   text-shadow: none;
-  background: #0085A1;
+  background: #146faa;
 }
 img::selection {
   color: white;
@@ -410,5 +419,5 @@ img::-moz-selection {
   background: transparent;
 }
 body {
-  -webkit-tap-highlight-color: #0085A1;
+  -webkit-tap-highlight-color: #146faa;
 }

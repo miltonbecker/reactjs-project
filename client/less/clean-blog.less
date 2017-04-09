@@ -309,7 +309,7 @@ hr.small {
 footer {
 	padding: 50px 0 65px;
 	margin-top: 20px;
-	background-color: @gray;
+	background-color: #252526;
 	.list-inline {
 		margin: 0;
 		padding: 0;
@@ -403,11 +403,21 @@ form .row:first-child .floating-label-form-group {
 	padding: 25px 35px;
 }
 
+.btn-primary {
+	background-color: @theme-primary;
+	border: 1px solid @theme-primary;
+	&:hover,
+	&:focus {
+		background-color: @theme-secondary;
+		border: 1px solid @theme-secondary;
+	}
+}
+
 .btn-default {
 	&:hover,
 	&:focus {
-		background-color: @theme-primary;
-		border: 1px solid @theme-primary;
+		background-color: @theme-secondary;
+		border: 1px solid @theme-secondary;
 		color: white;
 	}
 }
@@ -434,8 +444,8 @@ form .row:first-child .floating-label-form-group {
 		> a:hover,
 		> a:focus {
 			color: white;
-			background-color: @theme-primary;
-			border: 1px solid @theme-primary;
+			background-color: @theme-secondary;
+			border: 1px solid @theme-secondary;
 		}
 	}
 
