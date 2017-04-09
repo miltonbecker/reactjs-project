@@ -308,6 +308,7 @@ footer .copyright {
   background: none;
   box-shadow: none !important;
   resize: none;
+  height: auto;
 }
 .floating-label-form-group label {
   display: block;

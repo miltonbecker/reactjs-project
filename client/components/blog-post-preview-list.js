@@ -3,6 +3,7 @@ const React = require('react');
 const PostPreview = require('./blog-post-preview');
 const $ = require('jquery');
 const dateFormat = require('dateformat');
+const routes = require('../../common/routes');
 
 class PostPreviewList extends React.Component {
 
@@ -15,7 +16,7 @@ class PostPreviewList extends React.Component {
     }
 
     _getPosts() {
-        $.get('/api/posts')
+        $.get(routes.API_GET_ALL_POSTS)
             .done((data) => {
                 this.setState({ posts: JSON.parse(data) });
             })

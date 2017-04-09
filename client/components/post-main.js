@@ -4,6 +4,7 @@ const PostHeader = require('./post-header');
 const PostContent = require('./post-content');
 const $ = require('jquery');
 const dateFormat = require('dateformat');
+const routes = require('../../common/routes');
 
 class PostMain extends React.Component {
     constructor() {
@@ -18,7 +19,10 @@ class PostMain extends React.Component {
         if (!this.props.id)
             return;
 
-        $.get(`/api/post/${this.props.id}`)
+        let route = routes.API_GET_POST;
+        let routeWithoutParam = route.slice(0, route.indexOf(':'));
+
+        $.get(routeWithoutParam + this.props.id)
             .done((data) => {
                 this.setState({ post: JSON.parse(data) });
             })

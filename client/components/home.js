@@ -21,24 +21,24 @@ class Home extends React.Component {
 
                     <Router.Route
                         exact={true}
-                        path={routes.HOME_ROUTE}
+                        path={routes.PAGE_HOME}
                         component={BlogMain}
                     />
 
                     <Router.Route
-                        path={routes.ABOUT_ROUTE}
+                        path={routes.PAGE_ABOUT}
                         component={AboutMain}
                     />
 
                     <Router.Route
-                        path={routes.CONTACT_ROUTE}
+                        path={routes.PAGE_CONTACT}
                         component={ContactMain}
                     />
 
                     <Router.Route
-                        path={routes.POST_ROUTE}
+                        path={routes.PAGE_POST}
                         render={({ match }) => (
-                            <PostMain id={match.params.postId} />
+                            <PostMain id={match.params.id} />
                         )}
                     />
 

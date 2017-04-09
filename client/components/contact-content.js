@@ -12,36 +12,36 @@ class ContactContent extends React.Component {
                             <div className="row control-group">
                                 <div className="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Name</label>
-                                    <input type="text" className="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name." />
+                                    <input type="text" className="form-control" placeholder="Name" id="name" name="name"  required data-validation-required-message="Please enter your name." maxLength="100" />
                                     <p className="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div className="row control-group">
                                 <div className="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Email Address</label>
-                                    <input type="email" className="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address." />
+                                    <input type="email" className="form-control" placeholder="Email Address" id="email" name="email" required data-validation-required-message="Please enter your email address." maxLength="100" />
                                     <p className="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div className="row control-group">
                                 <div className="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Phone Number</label>
-                                    <input type="tel" className="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number." />
+                                    <input type="tel" className="form-control" placeholder="Phone Number" id="phone" name="phone" maxLength="100" />
                                     <p className="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div className="row control-group">
                                 <div className="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Message</label>
-                                    <textarea rows="5" className="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea rows="5" className="form-control" placeholder="Message" id="message" name="message" required data-validation-required-message="Please enter a message." maxLength="1000" data-validation-maxlength-message="You've exceeded the limit of 1000 characters."></textarea>
                                     <p className="help-block text-danger"></p>
                                 </div>
                             </div>
                             <br />
-                            <div id="success"></div>
+                            <div id="result"></div>
                             <div className="row">
                                 <div className="form-group col-xs-12">
-                                    <button type="submit" className="btn btn-default">Send</button>
+                                    <button type="submit" className="btn btn-primary" id="submit" data-title="Send">Send</button>
                                 </div>
                             </div>
                         </form>

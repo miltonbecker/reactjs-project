@@ -1,13 +1,16 @@
 'use strict';
 const React = require('react');
 const Router = require('react-router-dom');
+const routes = require('../../common/routes');
 
 class PostPreview extends React.Component {
 
     render() {
+        let route = routes.PAGE_POST;
+        let routeWithoutParam = route.slice(0, route.indexOf(':'));
         return (
             <div className="post-preview">
-                <Router.Link to={`/post/${this.props.id}`}>
+                <Router.Link to={routeWithoutParam + this.props.id}>
                     <h2 className="post-title">
                         {this.props.title}
                     </h2>

@@ -5,6 +5,9 @@ const header = require('gulp-header');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
 
 const gutil = require('gulp-util');
 const webpack = require('webpack');
@@ -42,14 +45,28 @@ gulp.task('minify-css', [ 'less' ], function () {
 
 // Minify JS
 gulp.task('minify-js', function () {
-    return gulp.src('client/public/js/clean-blog.js')
+
+    browserify('client/public/js/clean-blog.js')
+        .transform('babelify', { presets: [ "env" ] })
+        .bundle()
+        .pipe(source('clean-blog.min.js'))
+        .pipe(buffer())
         .pipe(uglify())
         .pipe(header(banner))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('client/public/js'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
+        .pipe(gulp.dest('client/public/js'));
+    
+    browserify('client/public/js/contact_me.js')
+        .transform('babelify', { presets: [ "env" ] })
+        .bundle()
+        .pipe(source('contact_me.min.js'))
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(header(banner))
+        .pipe(gulp.dest('client/public/js'));
+
+    // .pipe(browserSync.reload({
+    //     stream: true
+    // }))
 });
 
 // Copy vendor libraries from /node_modules into /vendor
@@ -88,7 +105,7 @@ gulp.task('browserSync', function () {
 gulp.task('dev', [ 'less', 'minify-css', 'minify-js', 'build-dev' ], function () {
     gulp.watch('client/less/*.less', [ 'less' ]);
     gulp.watch('client/public/css/*.css', [ 'minify-css' ]);
-    gulp.watch('client/public/js/*.js', [ 'minify-js' ]);
+    gulp.watch([ 'client/public/js/clean-blog.js', 'client/public/js/contact_me.js', 'common/*.js' ], [ 'minify-js' ]);
 
     // Reloads the browser whenever HTML or JS files change
     //gulp.watch('client/*.html', browserSync.reload);
@@ -104,7 +121,7 @@ gulp.task('dev', [ 'less', 'minify-css', 'minify-js', 'build-dev' ], function ()
 // Disadvantage: Requests are not blocked until bundle is available,
 //               can serve an old app on refresh
 gulp.task('build-dev', [ 'webpack:build-dev' ], function () {
-    gulp.watch([ 'client/*.js', 'client/components/*.js' ], [ 'webpack:build-dev' ]);
+    gulp.watch([ 'client/*.js', 'client/components/*.js', 'common/*.js' ], [ 'webpack:build-dev' ]);
 });
 
 // modify some webpack config options
@@ -120,8 +137,8 @@ gulp.task('webpack:build-dev', function () {
     devCompiler.run(function (err, stats) {
         if (err)
             throw new gutil.PluginError('webpack:build-dev', err);
-        
-        gutil.log('[webpack:build-dev]', stats.toString({colors: true}));
+
+        gutil.log('[webpack:build-dev]', stats.toString({ colors: true }));
     });
 });
 
@@ -139,7 +156,7 @@ gulp.task('webpack:build', function () {
             }
         }),
         new UglifyJSPlugin({
-            output: { 
+            output: {
                 comments: false,
             }
         })
@@ -149,7 +166,7 @@ gulp.task('webpack:build', function () {
     webpack(myConfig, function (err, stats) {
         if (err)
             throw new gutil.PluginError('webpack:build', err);
-        
-        gutil.log('[webpack:build]', stats.toString({colors: true}));
+
+        gutil.log('[webpack:build]', stats.toString({ colors: true }));
     });
 });

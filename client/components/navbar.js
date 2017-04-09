@@ -14,7 +14,7 @@ class Navbar extends React.Component {
                             <span className="sr-only">Toggle navigation</span>
                             Menu <i className="fa fa-bars"></i>
                         </button>
-                        <Router.Link className="navbar-brand" to={routes.HOME_ROUTE}>
+                        <Router.Link className="navbar-brand" to={routes.PAGE_HOME}>
                             Start Bootstrap
                         </Router.Link>
                     </div>
@@ -22,17 +22,17 @@ class Navbar extends React.Component {
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <Router.Link to={routes.HOME_ROUTE}>
+                                <Router.Link to={routes.PAGE_HOME}>
                                     Home
                                 </Router.Link>
                             </li>
                             <li>
-                                <Router.Link to={routes.ABOUT_ROUTE}>
+                                <Router.Link to={routes.PAGE_ABOUT}>
                                     About
                                 </Router.Link>
                             </li>
                             <li>
-                                <Router.Link to={routes.CONTACT_ROUTE}>
+                                <Router.Link to={routes.PAGE_CONTACT}>
                                     Contact
                                 </Router.Link>
                             </li>

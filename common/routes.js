@@ -1,8 +1,11 @@
 'use strict';
 
 module.exports = {
-    HOME_ROUTE: '/',
-    ABOUT_ROUTE: '/about',
-    POST_ROUTE: '/post/:postId',
-    CONTACT_ROUTE: '/contact'
+    PAGE_HOME: '/',
+    PAGE_ABOUT: '/about',
+    PAGE_CONTACT: '/contact',
+    PAGE_POST: '/post/:id',
+    API_GET_POST: '/api/post/:id',
+    API_GET_ALL_POSTS: '/api/posts',
+    MAIL_SEND: '/mail/send'
 };
