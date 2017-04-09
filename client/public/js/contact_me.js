@@ -26,12 +26,11 @@ $(function () {
                 $(this).text('Sending, please wait...');
             });
 
-            // get values from FORM
-            var name = $("input#name").val();
-            var firstName = name; // For Success/Failure Message
-            // Check for white space in name for Success/Fail message
+            // gets name for success/failure message
+            var name = $("input#name").val().trim();
+            var firstName = name; 
             if (firstName.indexOf(' ') >= 0) {
-                firstName = name.split(' ').slice(0, -1).join(' ');
+                firstName = name.split(' ')[0];
             }
             $.post(routes.MAIL_SEND, $form.serialize())
                 .done(function (data) {
@@ -40,7 +39,7 @@ $(function () {
                     $('#result > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#result > .alert-success')
-                        .append("<strong>Your message has been sent.</strong>");
+                        .append("<strong>" + firstName + ", your message has been sent.</strong>");
                     $('#result > .alert-success')
                         .append('</div>');
                 })
@@ -49,7 +48,7 @@ $(function () {
                     $('#result').html("<div class='alert alert-danger'>");
                     $('#result > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#result > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                    $('#result > .alert-danger').append("<strong>Sorry, " + firstName + ", it seems that my mail server is not responding. Please try again later!");
                     $('#result > .alert-danger').append('</div>');
                 })
                 .always(function () {
@@ -65,6 +64,8 @@ $(function () {
                         $(this).prop('disabled', false);
                         $(this).text($(this).data('title'));
                     });
+
+                    $('body').scrollTop($('#result').position().top);
                 });
         }
     });

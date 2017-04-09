@@ -5337,7 +5337,7 @@ module.exports = React;
 
 module.exports = {
     PAGE_HOME: '/',
-    PAGE_ABOUT: '/about',
+    PAGE_BLOG: '/blog',
     PAGE_CONTACT: '/contact',
     PAGE_POST: '/post/:id',
     API_GET_POST: '/api/post/:id',
@@ -33057,11 +33057,11 @@ class Home extends React.Component {
                 React.createElement(Router.Route, {
                     exact: true,
                     path: routes.PAGE_HOME,
-                    component: BlogMain
+                    component: AboutMain
                 }),
                 React.createElement(Router.Route, {
-                    path: routes.PAGE_ABOUT,
-                    component: AboutMain
+                    path: routes.PAGE_BLOG,
+                    component: BlogMain
                 }),
                 React.createElement(Router.Route, {
                     path: routes.PAGE_CONTACT,
@@ -33350,7 +33350,13 @@ class ContactContent extends React.Component {
                     ),
                     React.createElement(
                         'form',
-                        { name: 'sentMessage', id: 'contactForm', noValidate: true },
+                        { id: 'contactForm', noValidate: true },
+                        React.createElement(
+                            'label',
+                            { id: 'misc-label' },
+                            'Please leave blank:'
+                        ),
+                        React.createElement('input', { type: 'text', id: 'misc', name: 'misc' }),
                         React.createElement(
                             'div',
                             { className: 'row control-group' },
@@ -33581,7 +33587,7 @@ class Navbar extends React.Component {
                     React.createElement(
                         Router.Link,
                         { className: 'navbar-brand', to: routes.PAGE_HOME },
-                        'Start Bootstrap'
+                        'Milton Becker Junior'
                     )
                 ),
                 React.createElement(
@@ -33604,8 +33610,8 @@ class Navbar extends React.Component {
                             null,
                             React.createElement(
                                 Router.Link,
-                                { to: routes.PAGE_ABOUT },
-                                'About'
+                                { to: routes.PAGE_BLOG },
+                                'Blog'
                             )
                         ),
                         React.createElement(

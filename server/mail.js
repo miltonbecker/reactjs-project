@@ -16,13 +16,18 @@ const transporter = mailer.createTransport({
 
 function init(app) {
     app.post(routes.MAIL_SEND, urlencodedParser, function (req, res) {
-        // setup email data with unicode symbols
         const body = req.body;
 
+        // checks for bot trap         
+        if (body.misc) {
+            res.status(500).json('Nope');
+            return;
+        }
+
         let mailOptions = {
-            from: process.env.MAIL_USER, // sender address
-            to: process.env.MAIL_DEST, // list of receivers
-            subject: `Blog Contact: ${body.name}`, // Subject line
+            from: process.env.MAIL_USER, 
+            to: process.env.MAIL_DEST, // can be a list
+            subject: `Blog Contact: ${body.name}`, 
             text: `
             Name: ${body.name}
             Email: ${body.email}
@@ -38,7 +43,6 @@ function init(app) {
             ${body.message.replace(/\n/g, '<br />')}</p>`
         };
 
-        // send mail with defined transport object
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.log(error);

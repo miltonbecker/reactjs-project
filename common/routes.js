@@ -2,7 +2,7 @@
 
 module.exports = {
     PAGE_HOME: '/',
-    PAGE_ABOUT: '/about',
+    PAGE_BLOG: '/blog',
     PAGE_CONTACT: '/contact',
     PAGE_POST: '/post/:id',
     API_GET_POST: '/api/post/:id',

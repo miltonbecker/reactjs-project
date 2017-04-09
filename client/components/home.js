@@ -22,12 +22,12 @@ class Home extends React.Component {
                     <Router.Route
                         exact={true}
                         path={routes.PAGE_HOME}
-                        component={BlogMain}
+                        component={AboutMain}
                     />
 
                     <Router.Route
-                        path={routes.PAGE_ABOUT}
-                        component={AboutMain}
+                        path={routes.PAGE_BLOG}
+                        component={BlogMain}
                     />
 
                     <Router.Route

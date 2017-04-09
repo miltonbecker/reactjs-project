@@ -8,11 +8,15 @@ class ContactContent extends React.Component {
                 <div className="row">
                     <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <p>Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
-                        <form name="sentMessage" id="contactForm" noValidate>
+                        <form id="contactForm" noValidate>
+
+                            <label id='misc-label'>Please leave blank:</label>
+                            <input type='text' id='misc' name='misc' />
+
                             <div className="row control-group">
                                 <div className="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Name</label>
-                                    <input type="text" className="form-control" placeholder="Name" id="name" name="name"  required data-validation-required-message="Please enter your name." maxLength="100" />
+                                    <input type="text" className="form-control" placeholder="Name" id="name" name="name" required data-validation-required-message="Please enter your name." maxLength="100" />
                                     <p className="help-block text-danger"></p>
                                 </div>
                             </div>

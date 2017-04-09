@@ -15,7 +15,7 @@ class Navbar extends React.Component {
                             Menu <i className="fa fa-bars"></i>
                         </button>
                         <Router.Link className="navbar-brand" to={routes.PAGE_HOME}>
-                            Start Bootstrap
+                            Milton Becker Junior
                         </Router.Link>
                     </div>
 
@@ -27,8 +27,8 @@ class Navbar extends React.Component {
                                 </Router.Link>
                             </li>
                             <li>
-                                <Router.Link to={routes.PAGE_ABOUT}>
-                                    About
+                                <Router.Link to={routes.PAGE_BLOG}>
+                                    Blog
                                 </Router.Link>
                             </li>
                             <li>
