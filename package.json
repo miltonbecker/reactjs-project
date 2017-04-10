@@ -6,10 +6,8 @@
   "scripts": {
     "start": "node server/start.js",
     "start-watch": "nodemon --watch server --watch common server/start.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "webpack",
-    "bundle-watch": "webpack --watch",
-    "dev": "gulp dev"
+    "pro-bundle": "gulp build",
+    "dev-bundle": "gulp dev"
   },
   "repository": {
     "type": "git",
