@@ -7,7 +7,8 @@ class BlogMain extends React.Component {
     render() {
         return (
             <div>
-                <Header image="/img/home-bg.jpg" className="site-heading" title="Clean Blog" subtitle="A Clean Blog Theme by Start Bootstrap" />
+                <Header image='/img/home-bg.jpg' className='site-heading' title='Sample Blog'
+                    subtitle='Based on the Clean Blog Theme by Start Bootstrap<br/>"Reactified", "Nodefied" and "Postgresfied"' />
                 <PostPreviewList />
             </div>
         );

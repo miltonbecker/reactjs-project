@@ -9,20 +9,20 @@ class PostPreview extends React.Component {
         let route = routes.PAGE_POST;
         let routeWithoutParam = route.slice(0, route.indexOf(':'));
         return (
-            <div className="post-preview">
+            <div className='post-preview'>
                 <Router.Link to={routeWithoutParam + this.props.id}>
-                    <h2 className="post-title">
+                    <h2 className='post-title'>
                         {this.props.title}
                     </h2>
                     {/* Return subtitle only if it's set */}
                     {this.props.subtitle &&
-                        <h3 className="post-subtitle">
+                        <h3 className='post-subtitle'>
                             {this.props.subtitle}
                         </h3>
                     }    
                 </Router.Link>
-                <p className="post-meta">Posted by&nbsp;
-                    <a href="#">
+                <p className='post-meta'>Posted by&nbsp;
+                    <a href='javaScript:void(0);'>
                         {this.props.author}
                     </a> on {this.props.date}
                 </p>

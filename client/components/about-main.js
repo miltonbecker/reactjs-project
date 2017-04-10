@@ -7,7 +7,7 @@ class AboutMain extends React.Component {
     render() {
         return (
             <div>
-                <Header image="/img/about-bg.jpg" className="page-heading" title="About Me" subtitle="This is what I do." />
+                <Header image='/img/about-bg.jpg' className='page-heading' title='About Me' subtitle='This is what I do.' />
                 <AboutContent />
             </div>
         );

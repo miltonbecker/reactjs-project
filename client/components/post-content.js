@@ -8,9 +8,9 @@ class PostContent extends React.Component {
     render() {
         return (
             <article>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
                             {/* React first renders the page without any props (because the post is fetched after it was mounted) */}
                             {this.props.text &&
                                 this.renderText()

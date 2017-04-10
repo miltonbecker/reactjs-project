@@ -52,15 +52,15 @@ class PostPreviewList extends React.Component {
 
 
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
                         {postPreviews}
 
                         {/*<!-- Pager -->*/}
-                        <ul className="pager">
-                            <li className="next">
-                                <a href="#">Older Posts &rarr;</a>
+                        <ul className='pager'>
+                            <li className='next'>
+                                <a href='javaScript:void(0);'>Older Posts &rarr;</a>
                             </li>
                         </ul>
                     </div>
