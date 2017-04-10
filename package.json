@@ -21,16 +21,10 @@
   "homepage": "https://github.com/miltonbecker/reactjs-project#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
-    "dateformat": "^2.0.0",
     "express": "^4.15.2",
-    "marked": "^0.3.6",
     "nodemailer": "^4.0.0",
     "path": "^0.12.7",
-    "pg": "^6.1.5",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-render-html": "^0.1.6",
-    "react-router-dom": "^4.0.0"
+    "pg": "^6.1.5"
   },
   "devDependencies": {
     "@types/bootstrap": "^3.3.32",
@@ -43,6 +37,7 @@
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.13.0",
     "browserify": "^14.3.0",
+    "dateformat": "^2.0.0",
     "font-awesome": "^4.6.3",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3",
@@ -52,7 +47,12 @@
     "gulp-uglify": "^1.5.4",
     "gulp-util": "^3.0.8",
     "jquery": "^3",
+    "marked": "^0.3.6",
     "nodemon": "^1.11.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-render-html": "^0.1.6",
+    "react-router-dom": "^4.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "webpack": "^2.3.2",
