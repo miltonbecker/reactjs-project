@@ -33450,7 +33450,7 @@ class ContactContent extends React.Component {
                                     null,
                                     'Phone Number'
                                 ),
-                                React.createElement('input', { type: 'tel', className: 'form-control', placeholder: 'Phone Number', id: 'phone', name: 'phone', maxLength: '100' }),
+                                React.createElement('input', { type: 'tel', className: 'form-control', placeholder: 'Phone Number (optional)', id: 'phone', name: 'phone', maxLength: '100' }),
                                 React.createElement('p', { className: 'help-block text-danger' })
                             )
                         ),
@@ -33510,12 +33510,12 @@ class ContactMain extends React.Component {
         super(props);
 
         let lib = document.createElement('script');
-        lib.src = '/js/jqBootstrapValidation.min.js';
+        lib.src = '/dist/jqBootstrapValidation.min.js';
         lib.async = true;
         this.lib = lib;
 
         let script = document.createElement('script');
-        script.src = '/js/contact-me.min.js';
+        script.src = '/dist/contact-me.min.js';
         script.async = true;
         this.script = script;
     }

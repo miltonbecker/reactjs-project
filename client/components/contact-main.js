@@ -9,12 +9,12 @@ class ContactMain extends React.Component {
         super(props);
 
         let lib = document.createElement('script');
-        lib.src = '/js/jqBootstrapValidation.min.js';
+        lib.src = '/dist/jqBootstrapValidation.min.js';
         lib.async = true;
         this.lib = lib;
 
         let script = document.createElement('script');
-        script.src = '/js/contact-me.min.js';
+        script.src = '/dist/contact-me.min.js';
         script.async = true;
         this.script = script;
     }

@@ -30,7 +30,7 @@ class ContactContent extends React.Component {
                             <div className='row control-group'>
                                 <div className='form-group col-xs-12 floating-label-form-group controls'>
                                     <label>Phone Number</label>
-                                    <input type='tel' className='form-control' placeholder='Phone Number' id='phone' name='phone' maxLength='100' />
+                                    <input type='tel' className='form-control' placeholder='Phone Number (optional)' id='phone' name='phone' maxLength='100' />
                                     <p className='help-block text-danger'></p>
                                 </div>
                             </div>

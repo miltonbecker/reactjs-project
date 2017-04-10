@@ -14,7 +14,6 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const UglifyJSPlugin = require('webpack-uglify-harmony');
 
-// Set the banner content
 const banner = '/*!\n'
     + ' * Original version by:\n'
     + ' ** Start Bootstrap - Clean Blog v3.3.7+1 (http://startbootstrap.com/template-overviews/clean-blog)\n'
@@ -24,52 +23,49 @@ const banner = '/*!\n'
     + ' ** Milton Becker Junior (https://github.com/miltonbecker/reactjs-project)\n'
     + ' */\n';
 
-// Compile LESS files from /less into /css
-gulp.task('less', function () {
+// Compile LESS file from /less into .css, minify it and send it to /dest
+gulp.task('less-minify-css', function () {
     return gulp.src('client/less/clean-blog.less')
         .pipe(less())
         .pipe(header(banner))
-        .pipe(gulp.dest('client/public/css'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
+        .pipe(cleanCSS({ compatibility: 'ie8' }))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('client/public/dist'));
 });
 
 // Minify compiled CSS
-gulp.task('minify-css', [ 'less' ], function () {
-    return gulp.src('client/public/css/clean-blog.css')
-        .pipe(cleanCSS({ compatibility: 'ie8' }))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('client/public/css'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
-});
+// gulp.task('minify-css', [ 'less' ], function () {
+//     return gulp.src('client/public/css/clean-blog.css')
+//         .pipe(cleanCSS({ compatibility: 'ie8' }))
+//         .pipe(rename({ suffix: '.min' }))
+//         .pipe(gulp.dest('client/public/css'))
+//         // .pipe(browserSync.reload({
+//         //     stream: true
+//         // }))
+// });
 
-// Minify JS
-gulp.task('minify-js', function () {
+gulp.task('minify-js', [ 'minify-clean-blog-js', 'minify-contact-me-js' ]);
 
-    browserify('client/public/js/clean-blog.js')
+gulp.task('minify-clean-blog-js', function () {
+    browserify('client/js/clean-blog.js')
         .transform('babelify', { presets: [ "env" ] })
         .bundle()
         .pipe(source('clean-blog.min.js'))
         .pipe(buffer())
         .pipe(uglify())
         .pipe(header(banner))
-        .pipe(gulp.dest('client/public/js'));
-    
-    browserify('client/public/js/contact-me.js')
+        .pipe(gulp.dest('client/public/dist'));
+});
+
+gulp.task('minify-contact-me-js', function () {
+    browserify('client/js/contact-me.js')
         .transform('babelify', { presets: [ "env" ] })
         .bundle()
         .pipe(source('contact-me.min.js'))
         .pipe(buffer())
         .pipe(uglify())
         .pipe(header(banner))
-        .pipe(gulp.dest('client/public/js'));
-
-    // .pipe(browserSync.reload({
-    //     stream: true
-    // }))
+        .pipe(gulp.dest('client/public/dist'));
 });
 
 // Copy vendor libraries from /node_modules into /vendor
@@ -93,7 +89,7 @@ gulp.task('copy', function () {
 })
 
 // Run everything
-gulp.task('default', [ 'less', 'minify-css', 'minify-js', 'copy' ]);
+gulp.task('default', [ 'less-minify-css', 'minify-js', 'copy' ]);
 
 // Configure the browserSync task
 gulp.task('browserSync', function () {
@@ -105,32 +101,19 @@ gulp.task('browserSync', function () {
 })
 
 // Dev task with browserSync
-gulp.task('dev', [ 'less', 'minify-css', 'minify-js', 'build-dev' ], function () {
+gulp.task('dev', [ 'less-minify-css', 'minify-js', 'build-dev' ], function () {
     gulp.watch('client/less/*.less', [ 'less' ]);
-    gulp.watch('client/public/css/*.css', [ 'minify-css' ]);
-    gulp.watch([ 'client/public/js/clean-blog.js', 'client/public/js/contact-me.js', 'common/*.js' ], [ 'minify-js' ]);
-
-    // Reloads the browser whenever HTML or JS files change
-    //gulp.watch('client/*.html', browserSync.reload);
-    //gulp.watch('client/js/**/*.js', browserSync.reload);
+    gulp.watch([ 'client/js/clean-blog.js', 'common/*.js' ], [ 'minify-clean-blog-js' ]);
+    gulp.watch([ 'client/js/contact-me.js', 'common/*.js' ], [ 'minify-contact-me-js' ]);
 });
 
 /*
  * Webpack
  */
 
-// Build and watch cycle (another option for development)
-// Advantage: No server required, can run app from filesystem
-// Disadvantage: Requests are not blocked until bundle is available,
-//               can serve an old app on refresh
 gulp.task('build-dev', [ 'webpack:build-dev' ], function () {
     gulp.watch([ 'client/*.js', 'client/components/*.js', 'common/*.js' ], [ 'webpack:build-dev' ]);
 });
-
-// modify some webpack config options
-// var myDevConfig = Object.create(webpackConfig);
-// myDevConfig.devtool = 'sourcemap';
-// myDevConfig.debug = true;
 
 // create a single instance of the compiler to allow caching
 const devCompiler = webpack(webpackConfig);

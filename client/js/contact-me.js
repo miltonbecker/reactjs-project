@@ -1,4 +1,4 @@
-const routes = require('../../../common/routes');
+const routes = require('../../common/routes');
 
 $(function () {
     $('body').on('input propertychange', '.floating-label-form-group', function (e) {
@@ -74,7 +74,7 @@ $(function () {
 });
 
 
-/*When clicking on Full hide fail/success boxes */
+/*When clicking on Name hide fail/success boxes */
 // $('#name').focus(function () {
 //     $('#result').html('');
 // });

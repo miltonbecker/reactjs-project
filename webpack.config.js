@@ -5,7 +5,7 @@ const config = {
     entry: './client/react.js',
     output: {
         path: path.resolve(__dirname, 'client/public/dist'),
-        filename: 'bundle.js'
+        filename: 'react-bundle.js'
     },
     module: {
         rules: [
