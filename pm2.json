@@ -1,0 +1,19 @@
+{
+    "apps": [
+        {
+            "name": "blog",
+            "script": "server/start.js",
+            "watch": true,
+            "merge_logs": true,
+            "env": {
+                "NODE_ENV": "production",
+                "PG_USER": "",
+                "PG_DATABASE": "",
+                "PG_PASSWORD": "",
+                "MAIL_USER": "",
+                "MAIL_PASSWORD": "",
+                "MAIL_DEST": ""
+            }
+        }
+    ]
+}

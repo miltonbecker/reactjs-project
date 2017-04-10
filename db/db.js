@@ -6,11 +6,11 @@ const pg = require('pg')
 // note: all config is optional and the environment variables
 // will be read if the config is not present
 var config = {
-    user: process.env.PGUSER || 'milton', //env var: PGUSER
-    database: process.env.PGDATABASE || 'milton', //env var: PGDATABASE
-    password: process.env.PGPASSWORD || '', //env var: PGPASSWORD
+    user: process.env.PG_USER || 'milton', //env var: PGUSER
+    database: process.env.PG_DATABASE || 'milton', //env var: PGDATABASE
+    password: process.env.PG_PASSWORD || '', //env var: PGPASSWORD
     host: 'localhost', // Server hosting the postgres database
-    port: process.env.PGPORT || 5432, //env var: PGPORT
+    port: process.env.PG_PORT || 5432, //env var: PGPORT
     max: 5, // max number of clients in the pool
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
 };
