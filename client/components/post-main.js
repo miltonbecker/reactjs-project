@@ -7,15 +7,16 @@ const dateFormat = require('dateformat');
 const routes = require('../../common/routes');
 
 class PostMain extends React.Component {
-    constructor() {
-        super();
+
+    constructor(props) {
+        super(props);
 
         this.state = {
             post: ''
         };
     }
 
-    _getPost() {
+    getPost() {
         if (!this.props.id)
             return;
 
@@ -37,7 +38,7 @@ class PostMain extends React.Component {
     }
 
     componentDidMount() {
-        this._getPost();
+        this.getPost();
     }
 
     render() {

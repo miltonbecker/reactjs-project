@@ -2,6 +2,7 @@
 const React = require('react');
 
 class ContactContent extends React.Component {
+
     render() {
         return (
             <div className='container'>
@@ -54,6 +55,7 @@ class ContactContent extends React.Component {
             </div>
         );
     }
+    
 }
 
 module.exports = ContactContent;

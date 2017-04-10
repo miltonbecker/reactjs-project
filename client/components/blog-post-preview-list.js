@@ -7,15 +7,15 @@ const routes = require('../../common/routes');
 
 class PostPreviewList extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             posts: []
         };
     }
 
-    _getPosts() {
+    getPosts() {
         $.get(routes.API_GET_ALL_POSTS)
             .done((data) => {
                 this.setState({ posts: JSON.parse(data) });
@@ -31,7 +31,7 @@ class PostPreviewList extends React.Component {
     }
 
     componentDidMount() {
-        this._getPosts();
+        this.getPosts();
     }
 
     render() {
