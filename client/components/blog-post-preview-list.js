@@ -58,6 +58,7 @@ class PostPreviewList extends React.Component {
                         {postPreviews}
 
                         {/*<!-- Pager -->*/}
+                        {/*I haven't implemented paging*/}
                         <ul className='pager'>
                             <li className='next'>
                                 <a href='javaScript:void(0);'>Older Posts &rarr;</a>

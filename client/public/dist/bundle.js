@@ -33515,7 +33515,7 @@ class ContactMain extends React.Component {
         this.lib = lib;
 
         let script = document.createElement('script');
-        script.src = '/js/contact_me.min.js';
+        script.src = '/js/contact-me.min.js';
         script.async = true;
         this.script = script;
     }
@@ -33524,7 +33524,8 @@ class ContactMain extends React.Component {
         return React.createElement(
             'div',
             null,
-            React.createElement(Header, { image: '/img/contact-bg.jpg', className: 'page-heading', title: 'Contact Me', subtitle: 'Have questions? I have answers (maybe).' }),
+            React.createElement(Header, { image: '/img/contact-bg.jpg', className: 'page-heading', title: 'Contact Me',
+                subtitle: 'This form <b>is</b> working and you really will send me an email ;)' }),
             React.createElement(ContactContent, null)
         );
     }

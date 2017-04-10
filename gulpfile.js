@@ -16,9 +16,12 @@ const UglifyJSPlugin = require('webpack-uglify-harmony');
 
 // Set the banner content
 const banner = '/*!\n'
-    + ' * Start Bootstrap - Clean Blog v3.3.7+1 (http://startbootstrap.com/template-overviews/clean-blog)\n'
-    + ' * Copyright 2013-' + (new Date()).getFullYear() + ' Start Bootstrap\n'
-    + ' * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)\n'
+    + ' * Original version by:\n'
+    + ' ** Start Bootstrap - Clean Blog v3.3.7+1 (http://startbootstrap.com/template-overviews/clean-blog)\n'
+    + ' ** Copyright 2013-' + (new Date()).getFullYear() + ' Start Bootstrap\n'
+    + ' ** Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)\n'
+    + ' * Modified version by:\n'
+    + ' ** Milton Becker Junior (https://github.com/miltonbecker/reactjs-project)\n'
     + ' */\n';
 
 // Compile LESS files from /less into /css
@@ -55,10 +58,10 @@ gulp.task('minify-js', function () {
         .pipe(header(banner))
         .pipe(gulp.dest('client/public/js'));
     
-    browserify('client/public/js/contact_me.js')
+    browserify('client/public/js/contact-me.js')
         .transform('babelify', { presets: [ "env" ] })
         .bundle()
-        .pipe(source('contact_me.min.js'))
+        .pipe(source('contact-me.min.js'))
         .pipe(buffer())
         .pipe(uglify())
         .pipe(header(banner))
@@ -105,7 +108,7 @@ gulp.task('browserSync', function () {
 gulp.task('dev', [ 'less', 'minify-css', 'minify-js', 'build-dev' ], function () {
     gulp.watch('client/less/*.less', [ 'less' ]);
     gulp.watch('client/public/css/*.css', [ 'minify-css' ]);
-    gulp.watch([ 'client/public/js/clean-blog.js', 'client/public/js/contact_me.js', 'common/*.js' ], [ 'minify-js' ]);
+    gulp.watch([ 'client/public/js/clean-blog.js', 'client/public/js/contact-me.js', 'common/*.js' ], [ 'minify-js' ]);
 
     // Reloads the browser whenever HTML or JS files change
     //gulp.watch('client/*.html', browserSync.reload);
