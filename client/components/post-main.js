@@ -2,7 +2,6 @@
 const React = require('react');
 const PostHeader = require('./post-header');
 const PostContent = require('./post-content');
-const $ = require('jquery');
 const dateFormat = require('dateformat');
 const routes = require('../../common/routes');
 

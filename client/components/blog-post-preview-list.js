@@ -1,7 +1,6 @@
 'use strict';
 const React = require('react');
 const PostPreview = require('./blog-post-preview');
-const $ = require('jquery');
 const dateFormat = require('dateformat');
 const routes = require('../../common/routes');
 

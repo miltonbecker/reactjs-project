@@ -12,7 +12,6 @@ const buffer = require('vinyl-buffer');
 const gutil = require('gulp-util');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
-const UglifyJSPlugin = require('webpack-uglify-harmony');
 
 const banner = '/*!\n'
     + ' * Original version by:\n'
@@ -32,17 +31,6 @@ gulp.task('less-minify-css', function () {
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('client/public/dist'));
 });
-
-// Minify compiled CSS
-// gulp.task('minify-css', [ 'less' ], function () {
-//     return gulp.src('client/public/css/clean-blog.css')
-//         .pipe(cleanCSS({ compatibility: 'ie8' }))
-//         .pipe(rename({ suffix: '.min' }))
-//         .pipe(gulp.dest('client/public/css'))
-//         // .pipe(browserSync.reload({
-//         //     stream: true
-//         // }))
-// });
 
 gulp.task('minify-js', [ 'minify-clean-blog-js', 'minify-contact-me-js' ]);
 
@@ -135,16 +123,18 @@ gulp.task('webpack:build', function () {
     // modify some webpack config options
     let myConfig = Object.create(webpackConfig);
     myConfig.plugins = myConfig.plugins.concat(
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 // This has effect on the react lib size
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        new UglifyJSPlugin({
-            output: {
-                comments: false,
-            }
+        new webpack.optimize.UglifyJsPlugin({
+            compressor: {
+                warnings: false
+            },
+            comments: false
         })
     );
 
