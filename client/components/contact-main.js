@@ -23,7 +23,7 @@ class ContactMain extends React.Component {
         return (
             <div>
                 <Header image='/img/contact-bg.jpg' className='page-heading' title='Contact Me'
-                    subtitle='This form <b>is</b> working and you really will send me an email ;)' />
+                    subtitle='This form won&apos;t actually send me an email, because spam' />
                 <ContactContent />
             </div>
         );
