@@ -3,13 +3,13 @@
         {
             "name": "blog",
             "script": "server/start.js",
-            "watch": true,
+            "watch": false,
             "merge_logs": true,
             "env": {
                 "NODE_ENV": "production",
-                "PG_USER": "",
-                "PG_DATABASE": "",
-                "PG_PASSWORD": "",
+                "PG_USER": "rev",
+                "PG_DATABASE": "rev",
+                "PG_PASSWORD": "rev",
                 "MAIL_USER": "",
                 "MAIL_PASSWORD": "",
                 "MAIL_DEST": ""
